@@ -1,4 +1,4 @@
-# Đồ án môn Lập trình với Python, đề tài: Game FLAPPY BIRD
+# Đồ án môn Ngôn ngữ lập trình Python, đề tài: Game FLAPPY BIRD
 
 ## Cài đặt python vào máy
 Để có thể chạy được file chương trình thì ta sẽ phải cài python vào máy trước.
