@@ -5,7 +5,7 @@ from pygame.locals import *
 WINDOW_WIDTH = 500  # Chiều dài cửa sổ
 WINDOW_HEIGHT = 700  # Chiều cao cửa sổ
 DISPLAY_FLAPPY_BIRD = pygame.display.set_mode((WINDOW_WIDTH, WINDOW_HEIGHT))
-pygame.display.set_caption('DANG LAM')
+pygame.display.set_caption('FLAPPY BIRD')
 BACKGROUND_IMG = pygame.image.load('background_and_title/background.png')
 BACKGROUND_IMG = pygame.transform.scale(BACKGROUND_IMG, (1920, WINDOW_HEIGHT))
 
@@ -109,7 +109,7 @@ class Bird:
 
     def get_height(self):
         return self.__height
-
+    #ve len man hinh display hinh con chim thu n duoc dua vao
     def draw(self, number_of_bird_surface):
         DISPLAY_FLAPPY_BIRD.blit(self.__list_surface[number_of_bird_surface], (self.__x, self.__y))
 
