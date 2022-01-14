@@ -41,7 +41,6 @@ user@ubuntu:~/game_flappy_bird-main$ python3 flappy_bird.py
 ```bash
 MacBook-Pro:game_flappy_bird-main user$ python3 flappy_bird.py
 ```
-
 Sau khi gõ lệnh xong thì ta ấn phím Enter, lúc đó chương trình sẽ chạy và ta có được màn hình game FLAPPY BIRD.
 
 ## Lưu ý
