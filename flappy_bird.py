@@ -81,7 +81,7 @@ for i in range(17):
     LIST_BIRD_SURFACE.append(bird_img_temp)
 
 
-##
+## 
 class Bird:
     def __init__(self, bird_x=100, bird_y=270, bird_width=60, bird_height=60, bird_speed=-5):
         self.__width = bird_width
@@ -112,7 +112,7 @@ class Bird:
     #ve len man hinh display hinh con chim thu n duoc dua vao
     def draw(self, number_of_bird_surface):
         DISPLAY_FLAPPY_BIRD.blit(self.__list_surface[number_of_bird_surface], (self.__x, self.__y))
-
+    #kiểm tra sự kiện nút space hoặc chuột trái được nhấn thì chim sẽ bay lên và ngược lại
     def update(self, space_push, mouse_click):
         self.__y += self.__movement
         self.__movement += 0.3
@@ -150,12 +150,12 @@ class Columns:
 
     def get_blank(self):
         return self.__blank
-
+    ##vẽ lại 3 cột
     def draw(self):
         for i in range(3):
             DISPLAY_FLAPPY_BIRD.blit(self.__surface_top, (self.__list_column[i][0], self.__list_column[i][1] - self.__height))
             DISPLAY_FLAPPY_BIRD.blit(self.__surface_bot, (self.__list_column[i][0], self.__list_column[i][1] + self.__blank))
-
+    #cập nhật tọa độ vẽ cột
     def update(self):
         for i in range(3):
             self.__list_column[i][0] -= self.__speed
@@ -176,11 +176,11 @@ class Base:
         BASE_IMG = pygame.image.load('background_and_title/base.png')
         BASE_IMG = pygame.transform.scale(BASE_IMG, (self.__width, self.__height))
         self.__surface = BASE_IMG
-
+    #vẽ đất
     def draw(self):
         DISPLAY_FLAPPY_BIRD.blit(self.__surface, (self.__x, self.__y))
         DISPLAY_FLAPPY_BIRD.blit(self.__surface, (self.__x + WINDOW_WIDTH, self.__y))
-
+    #cập nhật tọa độ vẽ đất
     def update(self):
         self.__x -= self.__speed
         if self.__x < -(WINDOW_WIDTH):
@@ -191,7 +191,8 @@ class Score:
     def __init__(self):
         self.__score = 0
         self.__add_score = True
-
+    
+    #Vẽ điểm
     def draw(self):
         font_score = pygame.font.Font('font_in_game/fontScore.TTF', 40)
         score_surface = font_score.render(str(self.__score), True, WHITE)
@@ -200,7 +201,8 @@ class Score:
 
     def get_score(self):
         return self.__score
-
+    
+    #xem xét chim có đi vào vùng cộng điểm hay không, nếu có thì cộng 1.
     def update(self, bird, columns):
         collision = False
         rect_bird = [bird.get_x(), bird.get_y(), bird.get_width(), bird.get_height()]
@@ -324,7 +326,7 @@ button_exit_game_in_pause = pygame.transform.scale(button_exit_game_in_pause, (s
 ##
 
 
-# GAME PLAY
+#Xử lí GAME PLAY
 def game_play(bird, columns, score, base, check_replay_in_pause):
     rect_pause_game = [5, 5, 50, 50]
     rect_music = [WINDOW_WIDTH-80-5, 0, 80, 60]
@@ -441,7 +443,7 @@ font_score_in_over_game = pygame.font.Font('font_in_game/fontScore.TTF', 40)
 font_score_in_over_game_1 = pygame.font.Font('font_in_game/font2.ttf', 40)
 
 
-# GAME OVER
+#Xử lí GAME OVER
 def game_over(bird, columns, score, base, check_replay_in_pause):
     if check_replay_in_pause[0] == True:
         check_replay_in_pause[0] = False
